@@ -124,4 +124,4 @@ for file_name in file_name_list[2:]:
     ts_data_array.attrs = attr_dict
 
     data_set = xarray.Dataset({'TS': (['time'], ts_data_array)}, coords={'time': (['time'], time_data)})
-    data_set.to_netcdf('LENS_run_'+simulation_index+'_'+ECOREGION_NAME+'_'+run_type+'_'+date_range+'.nc')
+    data_set.to_netcdf('LENS_run_'+simulation_index+'_'+ECOREGION_NAME+'_'+run_type+'_'+date_range+'.nc', unlimited_dims='time')
