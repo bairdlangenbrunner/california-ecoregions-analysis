@@ -58,6 +58,7 @@ lat_polygon_lo_list = []
 lon_polygon_lo_list = []
 lon_list = []
 lat_list = []
+
 for latlon in latlon_index_combos:
 
     lat_idx = latlon[0]
