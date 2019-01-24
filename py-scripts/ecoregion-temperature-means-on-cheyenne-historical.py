@@ -105,11 +105,12 @@ file_name_list = [os.path.basename(f) for f in sorted(glob.glob('/glade/collecti
 for file_name in file_name_list[:2]:
 
     print(file_name)
-    ts_data = xarray.open_dataset(root_dir + file_name)['TS'].sel(lat=slice(lat_lo,lat_hi),lon=slice(lon_lo,lon_hi)).values
+    ncfile_temporary = xarray.open_dataset(root_dir + file_name)
+    ts_data = ncfile_temporary['TS'].sel(lat=slice(lat_lo,lat_hi),lon=slice(lon_lo,lon_hi)).values
     
     # now calculations weighting calculations
     weighted_ecoregion_ts_mean = numpy.nansum(mask_and_weights*ts_data, axis=(1,2))/numpy.nansum(mask_and_weights)
-    time_data = ncfile['time']
+    time_data = ncfile_temporary['time']
 
     ts_data_array = xarray.DataArray(weighted_ecoregion_ts_mean, coords=[time_data], dims=['time'])
 
