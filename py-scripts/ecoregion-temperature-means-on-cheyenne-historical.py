@@ -5,6 +5,8 @@ import numpy
 import xarray
 import shapely
 import itertools
+import glob
+import os
 
 lon_lo, lon_hi, lat_lo, lat_hi = 234., 246.25, 32., 42.5
 
