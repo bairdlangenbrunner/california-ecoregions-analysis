@@ -98,11 +98,11 @@ for i,latlon in enumerate(latlon_index_combos_intersect):
 
 # loop through all TS files
 
-file_name_list = [os.path.basename(f) for f in sorted(glob.glob('/glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE/atm/proc/tseries/daily/TS/b.e11.B20TRC5CNBDRD.f09_g16.???.cam.h1.TS.*'))]
+file_name_list = [os.path.basename(f) for f in sorted(glob.glob('/glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE/atm/proc/tseries/daily/TS/b.e11.BRCP85C5CNBDRD.f09_g16.???.cam.h1.TS.*'))]
 # for historical:  b.e11.B20TRC5CNBDRD.f09_g16.???.cam.h1.TS.*
 # for future:  b.e11.BRCP85C5CNBDRD.f09_g16.???.cam.h1.TS.*
 
-for file_name in file_name_list[2:]:
+for file_name in file_name_list:
 
     print(file_name)
     ncfile_temporary = xarray.open_dataset(root_dir + file_name)
